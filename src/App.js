@@ -4,6 +4,8 @@ import CardList from './components/CardList'
 import Play from './components/Play'
 
 function App() {
+  const [name, setName] = React.useState('Player')
+
   const [deck, setDeck] = React.useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
   const [hand, setHand] = React.useState([])
 
@@ -20,6 +22,8 @@ function App() {
 
   return (
     <>
+      <h1>Hello {name}</h1>
+      <input onChange={event => setName(event.target.value)} />
       <CardList message='Deck' list={deck} />
       <CardList message='My hand is' list={hand} />
       <Play
